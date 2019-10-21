@@ -23,7 +23,7 @@
 
 ### messages Association
 - belongs_to :users
-- has_many :groups, through: :groups_messages
+- belongs_to :groups
 
 ## groups table
 |column|Type|Options|
@@ -32,9 +32,9 @@
 
 ## groups Association
 - has_many :users through: :groups_users
-- has_many :messages through: :groups_messages
+- has_many :messages
 
-# Intermediate tables
+# Intermediate table
 
 ## groups_users table
 |Column|Type|Options|
@@ -46,15 +46,6 @@
 - belongs_to :group
 - belongs_to :user
 
-## groups_messages table
-|Column|Type|Options|
-|------|----|-------|
-|message_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-
-### groups_messages Association
-- belongs_to :group
-- belongs_to :message
 
 
 
