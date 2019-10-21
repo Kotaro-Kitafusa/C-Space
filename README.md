@@ -19,6 +19,7 @@
 |column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 |body|text||
 |image|text||
 
