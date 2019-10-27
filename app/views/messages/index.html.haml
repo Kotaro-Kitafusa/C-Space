@@ -7,7 +7,7 @@
         %p.main-header__group-name
           Chat room name
         .main-header__edit
-          = link_to "Edit", edit_group_path(1), class: "main-header__edit--btn"
+          = link_to "Edit", edit_group_path(@group), class: "main-header__edit--btn"
       %ul.group-list
         %li.group-list__members
           Members:
@@ -22,62 +22,14 @@
         %li.group-list__members
           John
     .messages
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
-      .messages__box
-        %p.messages__box__user-name
-          Kartman
-        %p.messages__box__posted-time
-          2019/10/24(Thu) 12:04:30
-        %p.messages__box__message
-          こんにちは！
+      = render @messages
     .form
       .form__input
-        %form
-          %input.form__input__message{:name => "message", :placeholder => "Type a message", :type => "text"}
-          %label.form__input__label{:for => "image"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'form__input__message', placeholder: 'type a message'
+          = f.label :image, class: 'form__input__label' do
             = fa_icon "image"
-          %input.form__input__image{:name => "image", :type => "file", :id => "image"}
-      %input.form__send{:type => "submit", :value => "Send"}
+          = f.file_field :image, class: 'form__input__image'
+          = f.submit 'Send', class: 'form__input__send'
 
 
