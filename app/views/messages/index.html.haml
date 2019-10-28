@@ -5,22 +5,16 @@
     .main-top-wrapper
       .main-header
         %p.main-header__group-name
-          Chat room name
+          = @group.name
         .main-header__edit
           = link_to "Edit", edit_group_path(@group), class: "main-header__edit--btn"
       %ul.group-list
         %li.group-list__members
           Members:
-        %li.group-list__members
-          Tom
-        %li.group-list__members
-          John
-        %li.group-list__members
-          John
-        %li.group-list__members
-          John
-        %li.group-list__members
-          John
+        - @group.users.each do |group|
+          %li.group-list__members
+            = group.name
+
     .messages
       = render @messages
     .form
