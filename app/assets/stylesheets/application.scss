@@ -130,6 +130,17 @@
       &__message {
         font-size: 14px;
         color: #434a54;
+        &:last-child{
+          margin-bottom: 20px;
+        }
+      }
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
+        display: block;
+        &:last-child{
+          margin-bottom: 20px;;
+        }
       }
     }
   }
@@ -163,14 +174,16 @@
         font-size: 16px;
         color: #434a54;
       }
-    }
-    &__send {
-      background-color: $light_blue;
-      padding: 0 30px;
-      height: 50px;
-      color: $white;
-      margin-left: 15px;
-      cursor: pointer;
+      &__send {
+        position: absolute;
+        top: 0px;
+        right: -115px;
+        padding: 0 30px;
+        background-color: $light_blue;
+        height: 50px;
+        color: $white;
+        cursor: pointer;
+      }
     }
   }
   }
