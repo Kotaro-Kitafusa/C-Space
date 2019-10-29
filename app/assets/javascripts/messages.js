@@ -1,5 +1,21 @@
 $(function(){
 
+  function buildMSG(msg) {
+    var content = msg.content ? `<p class="messages__box__message">${ msg.content }</p>` : "";
+    var img = msg.image ? `<img class="messages__box__image" src="${msg.image}"> `: "";
+    var html = `<div class="messages__box">
+                  <p class="messages__box__user-name">
+                    ${msg.user_name}
+                  </p>
+                  <p class="messages__box__posted-time">
+                    ${msg.created_at}
+                  </p>
+                  ${content}
+                  ${img}
+                  </div>`
+     return html;
+    }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -13,7 +29,9 @@ $(function(){
       contentType: false
     })
     .done(function(msg){
-      
+      console.log(msg);
+      var html = buildMSG(msg);
+      $('.messages').append(html);
     })
     .fail(function(){
 
