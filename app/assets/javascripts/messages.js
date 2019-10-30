@@ -1,5 +1,6 @@
 $(function(){
 
+
   function buildMSG(msg) {
     var content = msg.content ? `<p class="messages__box__message">${ msg.content }</p>` : "";
     var img = msg.image ? `<img class="messages__box__image" src="${msg.image}"> `: "";
@@ -29,12 +30,17 @@ $(function(){
       contentType: false
     })
     .done(function(msg){
-      console.log(msg);
       var html = buildMSG(msg);
       $('.messages').append(html);
+      $('.form__input__message').val('');
+      $('.form__input__image').val('');
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight})
     })
     .fail(function(){
-
+      aleart('error')
+    })
+    .always(function(){
+      $('.form__input__send').prop('disabled', false)
     })
   })
 
