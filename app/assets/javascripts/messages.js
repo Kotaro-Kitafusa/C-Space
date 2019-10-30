@@ -32,8 +32,7 @@ $(function(){
     .done(function(msg){
       var html = buildMSG(msg);
       $('.messages').append(html);
-      $('.form__input__message').val('');
-      $('.form__input__image').val('');
+      $('#new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight})
     })
     .fail(function(){
