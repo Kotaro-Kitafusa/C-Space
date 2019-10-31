@@ -63,7 +63,7 @@ $(function(){
          });
        })
        .fail(function(){
-         console.log('fail!');
+         alert('Error!');
        })
      };
      setInterval(reloadMessages, 5000);
