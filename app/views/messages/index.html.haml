@@ -15,7 +15,7 @@
           %li.group-list__members
             = group.name
 
-    .messages
+    .messages{ data: { group: {id: @group.id}}}
       = render @messages
     .form
       .form__input
