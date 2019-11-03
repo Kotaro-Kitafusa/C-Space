@@ -34,10 +34,10 @@ $(function(){
       $('.messages').append(html);
       $('#new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight})
-      $('.form__input__send').prop('disabled', false)
+      $('.form__input__send').removeAttr('disabled');
     })
     .fail(function(){
-      aleart('error')
+      alert('error')
     })
   })
 
