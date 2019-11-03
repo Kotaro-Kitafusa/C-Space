@@ -11,8 +11,7 @@ $(function (){
   }
 
   function  showNoUser(){
-    var html = `
-                <div class="chat-group-user clearfix">
+    var html = `<div class="chat-group-user clearfix nouser">
                 <p class="chat-group-user__name">ユーザーが見つかりません</p>
                 </div>`
     $('#user-search-result').append(html);
@@ -26,7 +25,6 @@ $(function (){
                 </div>`;
     $(".js-add-user").append(html);
   }
-
 
   function addMember(userId) {
     let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
@@ -42,8 +40,7 @@ $(function (){
       dataType: 'json'
     })
     .done(function(users){
-      console.log(users);
-      $('#chat-group-user').empty();
+      $('#user-search-result').empty();
       if(users.length !== 0) {
         users.forEach(function(user){
           buildUserList(user);

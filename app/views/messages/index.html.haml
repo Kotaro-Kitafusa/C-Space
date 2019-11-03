@@ -4,7 +4,7 @@
   .chat-main
     .main-top-wrapper
       .main-header
-        %p.main-header__group-name
+        %p.main-header__group-name{ data: { group: { name: @group.name } } }
           = @group.name
         .main-header__edit
           = link_to "Edit", edit_group_path(@group), class: "main-header__edit--btn"
